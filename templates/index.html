@@ -47,14 +47,14 @@
   </div>
 </div>
 <div class="container text-center add">
-<a href="#" class="button">Add Movie</a>
+<a href="{{url_for('add')}}" class="button">Add Movie</a>
 </div>
 {% endif %}
 
 {% if movies == [] %}
 <div class="card">
   <div class="container text-center add" id="empty">
-    <a href="#" class="button">Add Movie</a>
+    <a href="{{url_for('add')}}" class="button">Add Movie</a>
     </div>
 </div>
 {% endif %}

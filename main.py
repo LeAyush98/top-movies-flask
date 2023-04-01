@@ -4,6 +4,7 @@ import requests
 from db import db, Movie
 import os.path
 from edit_form import MovieForm
+from add_form import AddMovieForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -49,7 +50,10 @@ def delete(name):
     db.session.commit()
     return redirect(url_for("home"))   
 
-
+@app.route("/add")
+def add():
+    form = AddMovieForm()
+    return render_template("add.html", form=form)
 
 if __name__ == '__main__':
     app.run(debug=True)
