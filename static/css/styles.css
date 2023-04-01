@@ -9,14 +9,18 @@
 	 font-family: "Nunito Sans", sans-serif;
 }
  body {
-	 margin: 0;
+	 background-image: url("../images/background.gif");
+	 background-size: cover;
+	 margin: auto;
 	 padding: 0;
 	 height: 100vh;
 	 background-color: #ecf0f9;
 	 background-attachment: fixed;
+	
 }
 .large {
      font-size: 3rem;
+	 backdrop-filter: blur(10px);
 }
  .content {
 	 display: flex;
@@ -37,13 +41,13 @@
 	 width: 100%;
 	 margin-left: 1rem;
 	 font-weight: 900;
-	 font-size: 1.618rem;
-	 text-transform: uppercase;
+	 font-size: 5.5vh;
 	 letter-spacing: 0.1ch;
 	 line-height: 1;
 	 padding-bottom: 0.5em;
 	 margin-bottom: 1rem;
 	 position: relative;
+	 color: white;
 }
  .heading:after {
 	 display: block;
@@ -53,12 +57,16 @@
 	 height: 4px;
 	 background: linear-gradient(135deg, #1a9be6, #1a57e6);
 	 bottom: 0;
+	 color: white;
 }
  .description {
 	 width: 100%;
 	 margin-top: 0;
 	 margin-left: 1rem;
+	 color:#ABC4AA;
 	 margin-bottom: 3rem;
+	 font-size: 3vh;
+	 backdrop-filter: blur(10px);
 }
  .card {
 	 color: inherit;
@@ -75,6 +83,10 @@
 	 .card {
 		 width: calc(50% - 3rem);
 	}
+
+	 .description{
+		color: black;
+	 }
 }
  @media screen and (max-width: 500px) {
 	 .card {
@@ -207,8 +219,21 @@
 	 font-size: 11.5px;
 }
  .title {
-	 font-weight: bold;
+	 font-weight:bolder;
+	 font-size:3vh;
 }
  .release_date {
 	 font-weight: normal;
+}
+
+#edit_heading{
+	padding-bottom: 6%;
+}
+
+.form{
+	backdrop-filter: blur(10px);
+}
+
+#empty{
+    text-align: left;
 }

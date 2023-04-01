@@ -17,23 +17,30 @@
   <p class="description">These are my all time favourite movies.</p>
    
   <div class="card" >
-    <div class="front" style="background-image: {{first_movie.img_url}}">
-        <p class="large">{{first_movie.ranking}}</p>
+    {% if movies != []: %}
+    {%for movie in movies: %}
+    <div class="front" style="background-image: url({{movie.img_url}})">
+        <p class="large">{{movie.ranking}}</p>
     </div>
     <div class="back">
       <div>
-    <div class="title">{{first_movie.movie_name}} <span class="release_date">({{first_movie.year}})</span></div>
+    <div class="title"><strong>{{movie.movie_name}} <span class="release_date">({{movie.year}})</span></strong></div>
         <div class="rating">
-            <label>{{first_movie.rating}}</label>
+            <label>{{movie.rating}}</label>
           <i class="fas fa-star star"></i>
         </div>
-          <p class="review">{{first_movie.review}}</p>
+          <p class="review"><strong>{{movie.review}}</strong></p>
         <p class="overview">
-            {{first_movie.summary}}
+        <strong>{{movie.summary}}.</strong>
         </p>
 
-        <a href="#" class="button">Update</a>
-        <a href="#" class="button delete-button">Delete</a>
+        <a href="{{url_for('edit', name = movie.movie_name)}}" class="button">Update</a>
+       
+        <br>
+        <br>
+        <a href="{{url_for('delete', name = movie.movie_name)}}" class="button delete-button">Delete</a>
+        {% endfor %}
+        
 
       </div>
     </div>
@@ -42,5 +49,14 @@
 <div class="container text-center add">
 <a href="#" class="button">Add Movie</a>
 </div>
+{% endif %}
+
+{% if movies == [] %}
+<div class="card">
+  <div class="container text-center add" id="empty">
+    <a href="#" class="button">Add Movie</a>
+    </div>
+</div>
+{% endif %}
 
 {% endblock %}
