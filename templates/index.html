@@ -17,19 +17,19 @@
   <p class="description">These are my all time favourite movies.</p>
    
   <div class="card" >
-    <div class="front" style="background-image: url('https://www.shortlist.com/media/images/2019/05/the-30-coolest-alternative-movie-posters-ever-2-1556670563-K61a-column-width-inline.jpg');">
-        <p class="large">1</p>
+    <div class="front" style="background-image: {{first_movie.img_url}}">
+        <p class="large">{{first_movie.ranking}}</p>
     </div>
     <div class="back">
       <div>
-    <div class="title">Drive <span class="release_date">(2011)</span></div>
+    <div class="title">{{first_movie.movie_name}} <span class="release_date">({{first_movie.year}})</span></div>
         <div class="rating">
-            <label>7.5</label>
+            <label>{{first_movie.rating}}</label>
           <i class="fas fa-star star"></i>
         </div>
-          <p class="review">"Loved it!"</p>
+          <p class="review">{{first_movie.review}}</p>
         <p class="overview">
-            A mysterious Hollywood stuntman and mechanic moonlights as a getaway driver and finds himself in trouble when he helps out his neighbor in this action drama.
+            {{first_movie.summary}}
         </p>
 
         <a href="#" class="button">Update</a>
