@@ -6,7 +6,7 @@ class Movie(db.Model):
     """ front class members"""
     id = db.Column(db.Integer, primary_key=True)
     img_url = db.Column(db.String, unique=True, nullable=False)
-    ranking = db.Column(db.Integer, unique=True, nullable=False)
+    ranking = db.Column(db.Integer, unique=False, nullable=False)
 
     """ back class members"""
     movie_name = db.Column(db.String, unique=True, nullable=False)

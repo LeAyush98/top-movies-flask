@@ -32,17 +32,27 @@ def home():
 
 @app.route("/edit/<name>?id=<id>", methods= ["GET", "POST"])
 def edit(name,id):
+    is_first_movie = False
     form = MovieForm()
     if request.method == "GET":
-        
         return render_template("edit.html", name=name, form = form, id=id)
+    
     elif request.method == "POST":
-        movie = Movie.query.filter_by(movie_name=name).first()   
-        movie.rating = form.rating.data
-        movie.review = form.review.data
-        db.session.commit()
-        
-        return redirect(url_for("home"))   
+        if id == "1":
+            movie = Movie.query.filter_by(movie_name=name).first()   
+            movie.rating = form.rating.data
+            movie.review = form.review.data
+            db.session.commit()
+            
+            return redirect(url_for("home"))   
+        else:
+            api = MovieAPI(name)
+            movie = Movie(img_url=f"{api.IMAGE_URL}{api.search()[0]['poster_path']}?api_key={api.API_KEY}", ranking=10, movie_name=name, rating=form.rating.data,
+            year=f"{api.search()[0]['release_date'].split('-')[0]}", review=form.review.data, summary=f"{api.search()[0]['overview']}")
+            db.session.add(movie)
+            db.session.commit()
+            return redirect(url_for("home"))   
+
     
 @app.route("/delete/<name>", methods= ["POST", "GET"])
 def delete(name):
