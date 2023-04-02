@@ -89,12 +89,26 @@
 	 .description{
 		color: black;
 	 }
+
+	 div.small{
+		font-size: larger;
+		padding-left: 20%;
+	}
+    
+	
 }
  @media screen and (max-width: 500px) {
 	 .card {
 		 width: 100%;
 	}
+	div.small{
+		font-size: larger;
+		padding-left: 9%;
+	}
 }
+
+
+
  .front, .back {
 	 display: flex;
 	 border-radius: 6px;
@@ -273,14 +287,18 @@ a.beans{
 
 
 .border-top{
-	background-color: #333;
-	padding: 5px;
-	padding-top: 10px;
-	align-content: center;
-	padding-left: 22%;
+	left:0px;
+    padding-top: 2px;
+	height:34px;
+	width:100%;
+
+	background:#675D50;
+
+
 }
 
 .fst-italic{
 	font-size: larger;
 	color: antiquewhite;
+	padding-left: 50%;
 }

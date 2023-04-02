@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
-{% block title %}My Top 10 Movies{% endblock %}
+{% block title %}My Top Movies List{% endblock %}
 
 {% block content %}
 <div class="container">
-  <h1 class="heading">My Top 10 Movies</h1>
+  <h1 class="heading">My Top Movies List</h1>
   <p class="description">These are my all time favourite movies.</p>
    
   {% if movies != []: %}
@@ -53,6 +53,7 @@
 </div>
 <div class="container text-center add">
 <a href="{{url_for('add')}}" class="button fixed">Add Movie</a>
+
 </div>
 {% endif %}
 

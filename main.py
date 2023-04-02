@@ -6,6 +6,7 @@ import os.path
 from edit_form import MovieForm
 from add_form import AddMovieForm
 from movie_api import MovieAPI
+from sqlalchemy import asc
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -28,11 +29,18 @@ def home():
         db.session.add(first_movie)
         db.session.commit()
     
-    return render_template("index.html", movies = db.session.query(Movie).all()) # important, do not forget
+    def rank_sort():
+        movies = db.session.query(Movie).order_by(Movie.rating.asc())
+        for index,movie in enumerate(movies):
+            movie.ranking = 10-index
+            db.session.commit()
+    
+    rank_sort()
+
+    return render_template("index.html", movies = db.session.query(Movie).order_by(Movie.rating.asc())) # important, do not forget
 
 @app.route("/edit/<name>?id=<id>", methods= ["GET", "POST"])
 def edit(name,id):
-    is_first_movie = False
     form = MovieForm()
     if request.method == "GET":
         return render_template("edit.html", name=name, form = form, id=id)
