@@ -5,6 +5,7 @@ from db import db, Movie
 import os.path
 from edit_form import MovieForm
 from add_form import AddMovieForm
+from movie_api import MovieAPI
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -29,12 +30,12 @@ def home():
     
     return render_template("index.html", movies = db.session.query(Movie).all()) # important, do not forget
 
-@app.route("/edit/<name>", methods= ["GET", "POST"])
-def edit(name):
+@app.route("/edit/<name>?id=<id>", methods= ["GET", "POST"])
+def edit(name,id):
     form = MovieForm()
     if request.method == "GET":
         
-        return render_template("edit.html", name=name, form = form)
+        return render_template("edit.html", name=name, form = form, id=id)
     elif request.method == "POST":
         movie = Movie.query.filter_by(movie_name=name).first()   
         movie.rating = form.rating.data
@@ -50,10 +51,15 @@ def delete(name):
     db.session.commit()
     return redirect(url_for("home"))   
 
-@app.route("/add")
+@app.route("/add", methods= ["POST", "GET"])
 def add():
     form = AddMovieForm()
-    return render_template("add.html", form=form)
+    if request.method == "GET":
+        return render_template("add.html", form=form)
+    elif request.method == "POST":
+        movie_name = form.name.data
+        movie = MovieAPI(movie_name)
+        return render_template("select.html", movies = movie.search(), api_key = movie.API_KEY, details_url = movie.MORE_INFO_URL)
 
 if __name__ == '__main__':
     app.run(debug=True)

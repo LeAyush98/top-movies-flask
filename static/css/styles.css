@@ -241,3 +241,18 @@
 #add_form{
 	padding-top: 14%;
 }
+
+div.add_gif_background{
+	backdrop-filter: blur(10px);
+	padding: 20%;
+	border-radius: 100%;
+	font-size: x-large;
+	position: relative;
+	overflow: hidden;
+}
+
+a.beans{
+	background-color: #A4907C;
+	padding: 2%;
+	color: white;
+}

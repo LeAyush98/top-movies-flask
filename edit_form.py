@@ -7,3 +7,6 @@ class MovieForm(FlaskForm):
     rating = StringField('Your Rating out of 10', validators=[DataRequired()])
     review = TextAreaField('Your Review', validators=[InputRequired("Please enter a valid review!")], widget=TextArea())
     submit = SubmitField("Update", widget=SubmitInput(), render_kw={"style": "background-color: #B8621B; color: white;"})
+
+
+#{{details_url}}/{{movie["id"]}}?api_key={{api_key}}    

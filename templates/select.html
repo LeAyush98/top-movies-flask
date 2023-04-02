@@ -13,9 +13,13 @@
 {% block content %}
 <div class="container">
     <h1 class="heading">Select Movie</h1>
+  <div class="add_gif_background">
+    {% for movie in movies: %}  
   <p>
-    <a href="#"> MOVIE TITLE - MOVIE RELEASE DATE</a>
+    <a class="beans" href="{{url_for('edit', name=movie['original_title'], id=movie['id'])}}"> {{movie["original_title"]}} - {{movie["release_date"]}}</a>
   </p>
-
+  {% endfor %} 
+  </div>  
+  
 </div>
 {% endblock %}
