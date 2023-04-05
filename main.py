@@ -30,9 +30,10 @@ def home():
         db.session.commit()
     
     def rank_sort():
+        number_of_rows = db.session.query(Movie).count()
         movies = db.session.query(Movie).order_by(Movie.rating.asc())
         for index,movie in enumerate(movies):
-            movie.ranking = 10-index
+            movie.ranking = number_of_rows-index
             db.session.commit()
     
     rank_sort()

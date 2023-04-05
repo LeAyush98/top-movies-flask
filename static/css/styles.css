@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500&display=swap');
+
+
 *, *:before, *:after {
 	 box-sizing: border-box;
 }
@@ -41,13 +44,14 @@
 	 width: 100%;
 	 margin-left: 1rem;
 	 font-weight: 900;
-	 font-size: 5.5vh;
+	 font-size: 7vh;
 	 letter-spacing: 0.1ch;
 	 line-height: 1;
 	 padding-bottom: 0.5em;
 	 margin-bottom: 1rem;
 	 position: relative;
 	 color: white;
+	 font-family: 'Crimson Pro', serif;
 }
  .heading:after {
 	 display: block;
@@ -67,6 +71,7 @@
 	 margin-bottom: 3rem;
 	 font-size: 3vh;
 	 backdrop-filter: blur(10px);
+	 font-family: 'Crimson Pro', serif;
 }
  .card {
 	 color: inherit;
@@ -161,7 +166,7 @@
 }
  .card:hover .back {
 	 transform: rotateY(0deg);
-}
+ }
  .card:nth-child(even) .back {
 	 transform: rotateY(180deg);
 }
@@ -230,7 +235,7 @@
 .container.add {
     margin-top: 40px;
     margin-bottom: 20px;
-
+	
 }
 .rating {
     color: #E4BB23;
@@ -281,8 +286,9 @@ a.beans{
 }
 
 
-.fixed{
+a.fixed{
 	margin-bottom: 100px;
+	
 }
 
 

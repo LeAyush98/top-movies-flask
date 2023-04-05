@@ -1,7 +1,13 @@
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv("./.env")
+
+API_KEY = os.getenv("API_KEY")
 
 class MovieAPI:
-    API_KEY = "173589bc6018a70cc128cebac4111119"
+    API_KEY = API_KEY
     IMAGE_URL = "https://image.tmdb.org/t/p/w500"
     SEARCH_URL = "https://api.themoviedb.org/3"
     MORE_INFO_URL = "https://api.themoviedb.org/3/movie"
